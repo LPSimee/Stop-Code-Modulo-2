@@ -1,14 +1,21 @@
 STEP:
 
 1. Click sul bottone "FAI LA TUA SCELTA" ✓
-2. Apparire le scelte del giocatore: carta, sasso e forbice
-3. Click su una delle scelte
+2. Apparire le scelte del giocatore: carta, sasso e forbice ✓
+3. Click su una delle scelte ✓
 4. Determinare la scelta del computer in modo randomico
 5. Confrontare le scelte del giocatore e del computer
 6. Determinare il vincitore
 7. Visualizzare il risultato
 8. Aumentare di uno il punteggio del vincitore
 9. Ripetere il gioco
+
+Carta > Sasso
+Carta < Forbice
+Forbice > Carta
+Forbice < Sasso
+Sasso > Forbice
+Sasso < Carta
 
 I messaggi d'esito sono:
 
@@ -18,6 +25,6 @@ I messaggi d'esito sono:
 
 
 Funzioni implementate:
-- 
-- 
+- playRound()
+- showChoice()
 - 
