@@ -18,6 +18,7 @@ const rock = document.querySelector("#sasso");
 choiceBtn.onclick = function () {
     choicesCtn.style.display = "block";
     playerCtn.style.backgroundImage = "none";
+    cpuCtn.style.backgroundImage = "none";
 };
 
 // Click events of player's choices
