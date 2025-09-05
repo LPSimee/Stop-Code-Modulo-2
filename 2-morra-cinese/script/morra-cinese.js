@@ -62,6 +62,7 @@ function showChoice(container, choice) {
     container.style.backgroundImage = "url('immagini/" + choice + ".png')";
 }
 
+// Function that compares the player's choice with the cpu's choice and updates the score and message
 function compareChoices(playerChoice, cpuChoice, message) {
     if (cpuChoice == 1) {
         cpuChoice = "forbice";
