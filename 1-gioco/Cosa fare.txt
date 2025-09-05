@@ -1,0 +1,18 @@
+STEP:
+
+1. Click sul tasto "GIOCA" ✓ 
+2. Generare i due numeri randomici per il giocatore e la CPU
+3. Confrontare i due numeri e stabilire il vincitore (quello con il numero più alto)
+4. Mostrare l'esito apposito (vittoria, sconfitta o pareggio)
+
+
+I messaggi d'esito sono:
+
+- "Complimenti, hai vinto!"
+- "Mi dispiace, hai perso"
+- "Parita patta!"
+
+Funzioni implementate:
+
+- randomCard()
+- compareCards()
