@@ -9,6 +9,9 @@ let playerPoints = document.querySelector("#punteggioYou");
 let cpuPoints = document.querySelector("#punteggioCpu");
 let message = document.querySelector("#risultato");
 
+playerPoints.innerHTML = 0;
+cpuPoints.innerHTML = 0;
+
 // Player's choices
 const paper = document.querySelector("#foglia");
 const scissors = document.querySelector("#forbice");
@@ -19,6 +22,7 @@ choiceBtn.onclick = function () {
     choicesCtn.style.display = "block";
     playerCtn.style.backgroundImage = "none";
     cpuCtn.style.backgroundImage = "none";
+    message.style.display = "none";
 };
 
 // Click events of player's choices
@@ -34,24 +38,52 @@ rock.onclick = function () {
     playRound("sasso");
 };
 
+// Function that plays a round of the game
 function playRound(playerChoice) {
     console.log(playerChoice);
-    const cpuChoice = Math.floor(Math.random() * 3) + 1;
-
-    console.log(cpuChoice);
+    const cpuChoiceNum = Math.floor(Math.random() * 3) + 1;
 
     choicesCtn.style.display = "none";
     showChoice(playerCtn, playerChoice);
 
-    if (cpuChoice == 1) {
+    if (cpuChoiceNum == 1) {
         showChoice(cpuCtn, "forbice");
-    } else if (cpuChoice == 2) {
+    } else if (cpuChoiceNum == 2) {
         showChoice(cpuCtn, "sasso");
-    } else if (cpuChoice == 3) {
+    } else if (cpuChoiceNum == 3) {
         showChoice(cpuCtn, "foglia");
     }
+
+    compareChoices(playerChoice, cpuChoiceNum, message);
 }
 
+// Function that shows the player's and cpu's choices as background images
 function showChoice(container, choice) {
     container.style.backgroundImage = "url('immagini/" + choice + ".png')";
+}
+
+function compareChoices(playerChoice, cpuChoice, message) {
+    if (cpuChoice == 1) {
+        cpuChoice = "forbice";
+    } else if (cpuChoice == 2) {
+        cpuChoice = "sasso";
+    } else if (cpuChoice == 3) {
+        cpuChoice = "foglia";
+    }
+
+    if (playerChoice === cpuChoice) {
+        message.innerHTML = "<span class='patta'>Partita patta!</span>";
+    } else if (
+        (playerChoice == "forbice" && cpuChoice == "foglia") ||
+        (playerChoice == "sasso" && cpuChoice == "forbice") ||
+        (playerChoice == "foglia" && cpuChoice == "sasso")
+    ) {
+        message.innerHTML = "<span class='vinta'>:) Hai vinto</span>";
+        playerPoints.innerHTML = parseInt(playerPoints.innerHTML) + 1;
+    } else {
+        message.innerHTML = "<span class='persa'>:( Hai perso</span>";
+        cpuPoints.innerHTML = parseInt(cpuPoints.innerHTML) + 1;
+    }
+
+    message.style.display = "block";
 }
