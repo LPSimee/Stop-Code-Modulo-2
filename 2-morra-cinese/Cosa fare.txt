@@ -17,6 +17,11 @@ Forbice < Sasso
 Sasso > Forbice
 Sasso < Carta
 
+Le scelte della CPU sono:
+- Carta --> 3
+- Forbice --> 1
+- Sasso --> 2
+
 I messaggi d'esito sono:
 
 - ":) Hai vinto"

@@ -2,7 +2,8 @@
 
 const choiceBtn = document.querySelector("#inizia");
 const choicesCtn = document.querySelector("#gioco #scelta");
-const cpuChoiceCtn = document.querySelector("#cpu");
+const playerCtn = document.querySelector("#you");
+const cpuCtn = document.querySelector("#cpu");
 
 let playerPoints = document.querySelector("#punteggioYou");
 let cpuPoints = document.querySelector("#punteggioCpu");
@@ -38,14 +39,17 @@ function playRound(playerChoice) {
     console.log(cpuChoice);
 
     choicesCtn.style.display = "none";
-    document.querySelector("#you").style.backgroundImage =
-        "url('immagini/" + playerChoice + ".png')";
+    showChoice(playerCtn, playerChoice);
 
     if (cpuChoice == 1) {
-        cpuChoiceCtn.style.backgroundImage = "url(' immagini/forbice.png')";
+        showChoice(cpuCtn, "forbice");
     } else if (cpuChoice == 2) {
-        cpuChoiceCtn.style.backgroundImage = "url('immagini/sasso.png')";
+        showChoice(cpuCtn, "sasso");
     } else if (cpuChoice == 3) {
-        cpuChoiceCtn.style.backgroundImage = "url('immagini/foglia.png')";
+        showChoice(cpuCtn, "foglia");
     }
+}
+
+function showChoice(container, choice) {
+    container.style.backgroundImage = "url('immagini/" + choice + ".png')";
 }
