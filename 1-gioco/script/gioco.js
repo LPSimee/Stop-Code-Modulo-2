@@ -22,7 +22,7 @@ function compareCards() {
     // If the cards are equal, it returns a message of "parita patta"
     // NOTE: the innerHTML values are strings, so we need to cast them to integers before comparing them.
     if (parseInt(cardYou.innerHTML) == parseInt(cardCPU.innerHTML)) {
-        message.innerHTML = "Parita patta!";
+        message.innerHTML = "Partita patta!";
         return;
     }
 
