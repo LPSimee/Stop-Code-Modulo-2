@@ -17,6 +17,7 @@ const rock = document.querySelector("#sasso");
 // Click event of "FAI LA TUA SCELTA" button
 choiceBtn.onclick = function () {
     choicesCtn.style.display = "block";
+    playerCtn.style.backgroundImage = "none";
 };
 
 // Click events of player's choices
