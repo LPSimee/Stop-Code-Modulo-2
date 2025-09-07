@@ -1,9 +1,9 @@
 // For this game, we will use event listeners to handle user interactions.
 
-let posRandomBmb = Math.floor(Math.random() * 16); // For the bomb position, we generate a random number between 0 and 15 to match the index of the array.
-let clickCounter = 0; // This variable will count the number of safe clicks made by the player.
-
 document.addEventListener("DOMContentLoaded", function () {
+    let posRandomBmb = Math.floor(Math.random() * 16); // For the bomb position, we generate a random number between 0 and 15 to match the index of the array.
+    let clickCounter = 0; // This variable will count the number of safe clicks made by the player.
+
     const grid = document.querySelector("#gioco > ul");
     const resultMessage = document.querySelector("#fine");
     const newGameBtn = document.querySelector("#new");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < gridCells.length; i++) {
         
         gridCells[i].addEventListener("click", function () {
-            if (isBomb(gridCells[i])) {
+            if (isBomb(this)) {
                 this.style.backgroundImage = "url('immagini/bomb.png')";
 
                 showResultMessage(resultMessage, clickCounter);
