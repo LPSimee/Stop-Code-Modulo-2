@@ -10,6 +10,6 @@ STEP:
 NOTA: le immagini sono applicate con la proprietà "background-image"
 
 Metodi implementati:
-- generateTable()
+- generateTable(posBomb, table)
 - isBomb()
 - newGame()

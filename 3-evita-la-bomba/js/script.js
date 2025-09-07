@@ -6,11 +6,26 @@ let clickCounter = 0; // This variable will count the number of safe clicks made
 document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector("#gioco > ul");
     const resultMessage = document.querySelector("#fine");
-    const newGameButton = document.querySelector("#new");
+    const newGameBtn = document.querySelector("#new");
+
+    generateTable(posRandomBmb, table);
+
+    newGameBtn.addEventListener("click", () => {
+        console.log("CIAO");
+    });
 }); // DOMContentLoaded
 
 // In this section we will declare the functions we will use in the game.
-function generateTable() {}
+function generateTable(posBomb, table) {
+    for (let i = 0; i < 16; i++) {
+        const cell = document.createElement("li");
+        if (posBomb == i) {
+            cell.classList.add("bomba");
+        }
+
+        table.appendChild(cell);
+    }
+}
 
 function isBomb() {}
 
