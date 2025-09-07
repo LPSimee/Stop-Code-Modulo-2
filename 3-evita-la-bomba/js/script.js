@@ -19,14 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
         
         gridCells[i].addEventListener("click", function () {
             if (isBomb(gridCells[i])) {
-                gridCells[i].style.backgroundImage = "url('immagini/bomb.png')";
+                this.style.backgroundImage = "url('immagini/bomb.png')";
 
                 showResultMessage(resultMessage, clickCounter);
 
                 // resultMessage.innerText = `Hai perso! Hai evitato ${clickCounter} arcobaleni.`;
                 gridBlock.classList.add("bloccaGioco");
             } else {
-                gridCells[i].style.backgroundImage = "url('immagini/rainbow.png')";
+                this.style.backgroundImage = "url('immagini/rainbow.png')";
                 clickCounter++;
             }
 
