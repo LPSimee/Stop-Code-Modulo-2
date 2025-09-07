@@ -7,10 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const grid = document.querySelector("#gioco > ul");
     const resultMessage = document.querySelector("#fine");
     const newGameBtn = document.querySelector("#new");
+    const gridBlock = document.querySelector("#gioco span");
 
     generateGrid(posRandomBmb, grid);
-
-    const cells = document.querySelectorAll("li");
 
     newGameBtn.addEventListener("click", newGame);
 }); // DOMContentLoaded
@@ -27,7 +26,9 @@ function generateGrid(posBomb, grid) {
     }
 }
 
-function isBomb() {}
+function isBomb(cell) {
+    return cell.classList.contains("bomba");
+}
 
 function newGame() {
     window.location.reload();

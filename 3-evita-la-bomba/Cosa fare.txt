@@ -2,14 +2,14 @@ STEP:
 1. Generazione di un numero casuale corrispondente alla posizione della bomba ✓
 2. Generazione dei 16 <li> (quadratini contenenti o gli arcobaleni, o la bomba) tramite un ciclo for ✓
 3. Inserire la classe "bomba" sul quadratino con indice corrispondente al numero casuale ✓
-4. Gestione degli eventi click sui quadratini 
-5. Verificare se il quadratino cliccato contiene la classe "bomba"
-6. Se viene trovata la bomba, mostrare il messaggio di fine gioco e applicare la classe "bloccaGioco" sullo <span> per disabilitare ulteriori clic sulla griglia <ul>
+4. Gestione degli eventi click sui quadratini ✓
+5. Verificare se il quadratino cliccato contiene la classe "bomba" 
+6. Se viene trovata la bomba, mostrare il messaggio di fine gioco e applicare la classe "bloccaGioco" sullo <span> per disabilitare ulteriori clic sulla griglia <ul> 
 7. Gestione del click sul bottone "Fai una nuova partita"
 
 NOTA: le immagini sono applicate con la proprietà "background-image"
 
 Metodi implementati:
-- generateTable(posBomb, table)
+- generateTable(posBomb, grid)
 - isBomb()
 - newGame()
