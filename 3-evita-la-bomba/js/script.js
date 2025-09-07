@@ -11,6 +11,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     generateGrid(posRandomBmb, grid);
 
+    const gridCells = grid.children;
+
+    console.log(gridCells)
+
+    for (let i = 0; i < gridCells.length; i++) {
+        
+        gridCells[i].addEventListener("click", function () {
+            if (isBomb(gridCells[i])) {
+                gridCells[i].style.backgroundImage = "url('immagini/bomb.png')";
+
+                showResultMessage(resultMessage, clickCounter);
+
+                // resultMessage.innerText = `Hai perso! Hai evitato ${clickCounter} arcobaleni.`;
+                gridBlock.classList.add("bloccaGioco");
+            } else {
+                gridCells[i].style.backgroundImage = "url('immagini/rainbow.png')";
+                clickCounter++;
+            }
+
+        });
+    }
+
+
     newGameBtn.addEventListener("click", newGame);
 }); // DOMContentLoaded
 
@@ -28,6 +51,13 @@ function generateGrid(posBomb, grid) {
 
 function isBomb(cell) {
     return cell.classList.contains("bomba");
+}
+
+function showResultMessage(message, numCount) {
+    message.style.display = "block";
+
+    let numCountSpan = document.querySelector("#fine > p > span");
+    numCountSpan.innerText = numCount;
 }
 
 function newGame() {
