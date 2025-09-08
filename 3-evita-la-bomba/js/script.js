@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 showResultMessage(resultMessage, clickCounter);
 
-                // resultMessage.innerText = `Hai perso! Hai evitato ${clickCounter} arcobaleni.`;
                 gridBlock.classList.add("bloccaGioco");
             } else {
                 this.style.backgroundImage = "url('immagini/rainbow.png')";
