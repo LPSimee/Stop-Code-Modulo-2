@@ -9,6 +9,6 @@ STEP:
 
 Funzioni implementate:
 - checkInput(inputValue, regex)
-
+- showCard()
 
 NOTA: 
