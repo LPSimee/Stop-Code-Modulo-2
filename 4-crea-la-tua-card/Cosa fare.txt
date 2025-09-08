@@ -1,10 +1,17 @@
 STEP:
-1. 
+1. Gestione dell'evento "submit" del form ✓
+2. Fermare l'evento con "event.preventDefault()" sul form ✓
+3. Creare, per ogni input, un metodo di validazione della value inserita dall'utente tramite REGEX 
+4. Se il controllo ha esito negativo, mostrare un messaggio di errore
+5. Controllo del "check" della sezione "Accetto le condizioni di utilizzo"
+6. Se i controlli sono tutti positivi, mostrare in output una card con i dati inseriti e una delle immagini profilo che si trovano nella cartella "immagini"
 
 
 Funzioni implementate:
-- 
-- 
-- 
+- checkInput()
+- checkName()
+- checkEmail()
+- checkTel()
+
 
 NOTA: 
