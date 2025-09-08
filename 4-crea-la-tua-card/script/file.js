@@ -30,18 +30,20 @@ function checkInput(inputValue, regex) {
 }
 
 function showCard(name, email, tel) {
-    console.log("La tua card è stata creata con successo!");
     const formCtn = document.querySelector("#modulo");
     const cardCtn = document.querySelector("#card");
 
     formCtn.style.display = "none";
     cardCtn.style.display = "block";
 
-    const cardName = document.querySelector(".nome");
-    const cardEmail = document.querySelector(".mail");
-    const cardTel = document.querySelector(".phone");
+    const cardName = document.querySelector(".nome > span");
+    const cardEmail = document.querySelector(".mail > span");
+    const cardTel = document.querySelector(".phone > span");
 
-    cardName.innterHTML = name;
+    const cardImg = document.querySelector("#card > img");
+
+    cardImg.src = "immagini/" + (Math.floor(Math.random()*4) + 1)+ ".png";
+    cardName.innerHTML = name;
     cardEmail.innerHTML = email;
     cardTel.innerHTML = "+ 39 " + tel;
 }
