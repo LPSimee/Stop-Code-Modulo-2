@@ -8,8 +8,6 @@ STEP:
 
 
 Funzioni implementate:
-- checkName(checkName, name)
-- checkEmail(checkEmail, mail)
-- checkTel(checkTel, phone)
+- validateField(input, regex, emptyMsg, invalidMsg)
 - checkBox(box)
 - showCard(name, email, tel)

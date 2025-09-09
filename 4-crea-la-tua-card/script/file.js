@@ -12,76 +12,62 @@ const inputName = document.querySelector("#nome");
 const inputEmail = document.querySelector("#email");
 const inputTel = document.querySelector("#tel");
 const privacyCheckBox = document.querySelector("#privacy");
+const privacyErrorSpan = document.querySelector("#privacy~span"); // To put the error message of the checkbox
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    let nameTrim = regexName.test(inputName.value.trim());
-    let emailTrim = regexEmail.test(inputEmail.value.trim());
-    let telTrim = regexTel.test(inputTel.value.trim());
+    const isNameValid = validateField(inputName, regexName, "Nome obbligatorio", "Il tuo nome è invalido");
+    const isEmailValid = validateField(inputEmail, regexEmail, "Email obbligatoria", "La tua mail è sbagliata");
+    const isTelValid = validateField(inputTel, regexTel, "Telefono obbligatorio", "Il telefono è sbagliato");
+    const isPrivacyChecked = validatePrivacyCheckbox(privacyCheckBox);
 
-    checkName(nameTrim, inputName);
-    checkEmail(emailTrim, inputEmail);
-    checkTel(telTrim, inputTel);
-    checkBox(privacyCheckBox);
 
-    if(nameTrim && emailTrim && telTrim && privacyCheckBox.checked){
+    if (isNameValid && isEmailValid && isTelValid && isPrivacyChecked) {
         showCard(inputName.value, inputEmail.value, inputTel.value);
     }
 });
 
-function checkName(checkName, name){
-    if(name.value == ""){
-        name.nextElementSibling.innerHTML = "Nome obbligatorio";
-    } else if(checkName == false){
-        name.nextElementSibling.innerHTML = "Il tuo nome è invalido";
-    } else {
-        name.nextElementSibling.innerHTML = "";
+function validateField(input, regex, emptyMsg, invalidMsg) {
+    const errorSpan = input.nextElementSibling;
+    const value = input.value.trim();
+
+    if (value === "") {
+        errorSpan.textContent = emptyMsg;
+        return false;
     }
+    if (!regex.test(value)) {
+        errorSpan.textContent = invalidMsg;
+        return false;
+    }
+
+    errorSpan.textContent = "";
+    return true;
 }
 
 
-function checkEmail(checkEmail, mail){
-    if(mail.value == ""){
-        mail.nextElementSibling.innerHTML = "Email obbligatoria";
-    } else if(checkEmail == false){
-        mail.nextElementSibling.innerHTML = "La tua mail è sbagliata";
-    } else {
-        mail.nextElementSibling.innerHTML = "";
-    }
-}
-
-function checkTel(checkTel, phone){
-    if(phone.value == ""){
-        phone.nextElementSibling.innerHTML = "Telefono obbligatorio";
-    } else if(checkTel == false){
-        phone.nextElementSibling.innerHTML = "Il telefono è sbagliato";
-    } else {
-        phone.nextElementSibling.innerHTML = "";
-    }
-}
-
-function checkBox(box){
-    if(!box.checked){
-        document.querySelector("#privacy~span").innerHTML = "Devi accettare le condizioni d'uso";
-    } else {
-        document.querySelector("#privacy~span").innerHTML = "";
+function validatePrivacyCheckbox(checkbox) {
+    if (!checkbox.checked) {
+        privacyErrorSpan.textContent = "Devi accettare le condizioni d'uso";
+        return false;
     }
     
+    privacyErrorSpan.textContent = "";
+    return true;
 }
 
 function showCard(name, email, tel) {
     const formCtn = document.querySelector("#modulo");
     const cardCtn = document.querySelector("#card");
 
-    formCtn.style.display = "none";
-    cardCtn.style.display = "block";
-
     const cardName = document.querySelector(".nome > span");
     const cardEmail = document.querySelector(".mail > span");
     const cardTel = document.querySelector(".phone > span");
 
     const cardImg = document.querySelector("#card > img");
+    
+    formCtn.style.display = "none";
+    cardCtn.style.display = "block";
 
     cardImg.src = "immagini/" + (Math.floor(Math.random()*4) + 1)+ ".png";
     cardName.innerHTML = name;
