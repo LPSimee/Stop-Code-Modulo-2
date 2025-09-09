@@ -1,7 +1,7 @@
 // For the form validation I will use REGEX
 
 // Found these regex from the internet
-const regexName = /^([a-zA-Z0-9_\s]+)$/; // link: https://regexr.com/3agii
+const regexName = /^\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+$/; // link: https://regexr.com/3f8cm
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // link: https://medium.com/@sketch.paintings/email-validation-with-javascript-regex-e1b40863ed23
 const regexTel = /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?)?(\d[-.\s]?){6,9}\d$/; // link: https://www.reddit.com/r/GoogleForms/comments/1egqyxn/help_with_regex_validation_for_worldwide_email/?tl=it
 
@@ -16,15 +16,22 @@ const privacyCheckBox = document.querySelector("#privacy");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log(checkInput(inputTel.value, regexTel));
+    let nameTrim = regexName.test(inputName.value.trim());
+    let emailTrim = regexEmail.test(inputEmail.value.trim());
+    let telTrim = regexTel.test(inputTel.value.trim());
 
-    if (checkInput(inputName.value, regexName) && checkInput(inputEmail.value, regexEmail) && checkInput(inputTel.value, regexTel) && privacyCheckBox.checked){
-        showCard(inputName.value, inputEmail.value, inputTel.value);
-    }
+    checkName(nameTrim, inputName);
+
 });
 
-function checkInput(inputValue, regex) {
-    return regex.test(inputValue);
+function checkName(checkName, name){
+    if(name.value == ""){
+        name.nextElementSibling.innerHTML = "Nome obbligatorio";
+    } else if(checkName == false){
+        name.nextElementSibling.innerHTML = "Il tuo nome è invalido";
+    } else {
+        name.nextElementSibling.innerHTML = "";
+    }
 }
 
 function showCard(name, email, tel) {
