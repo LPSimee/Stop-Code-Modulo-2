@@ -23,7 +23,7 @@ form.addEventListener("submit", (event) => {
     checkName(nameTrim, inputName);
     checkEmail(emailTrim, inputEmail);
     checkTel(telTrim, inputTel);
-
+    checkBox(privacyCheckBox);
 });
 
 function checkName(checkName, name){
@@ -55,6 +55,15 @@ function checkTel(checkTel, phone){
     } else {
         phone.nextElementSibling.innerHTML = "";
     }
+}
+
+function checkBox(box){
+    if(!box.checked){
+        document.querySelector("#privacy~span").innerHTML = "Devi accettare le condizioni d'uso";
+    } else {
+        document.querySelector("#privacy~span").innerHTML = "";
+    }
+    
 }
 
 function showCard(name, email, tel) {
