@@ -8,7 +8,8 @@ STEP:
 
 
 Funzioni implementate:
-- checkInput(inputValue, regex)
-- showCard()
-
-NOTA: 
+- checkName(checkName, name)
+- checkEmail(checkEmail, mail)
+- checkTel(checkTel, phone)
+- checkBox(box)
+- showCard(name, email, tel)

@@ -24,6 +24,10 @@ form.addEventListener("submit", (event) => {
     checkEmail(emailTrim, inputEmail);
     checkTel(telTrim, inputTel);
     checkBox(privacyCheckBox);
+
+    if(nameTrim && emailTrim && telTrim && privacyCheckBox.checked){
+        showCard(inputName.value, inputEmail.value, inputTel.value);
+    }
 });
 
 function checkName(checkName, name){
