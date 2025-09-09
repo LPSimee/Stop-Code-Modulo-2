@@ -22,6 +22,7 @@ form.addEventListener("submit", (event) => {
 
     checkName(nameTrim, inputName);
     checkEmail(emailTrim, inputEmail);
+    checkTel(telTrim, inputTel);
 
 });
 
@@ -43,6 +44,16 @@ function checkEmail(checkEmail, mail){
         mail.nextElementSibling.innerHTML = "La tua mail è sbagliata";
     } else {
         mail.nextElementSibling.innerHTML = "";
+    }
+}
+
+function checkTel(checkTel, phone){
+    if(phone.value == ""){
+        phone.nextElementSibling.innerHTML = "Telefono obbligatorio";
+    } else if(checkTel == false){
+        phone.nextElementSibling.innerHTML = "Il telefono è sbagliato";
+    } else {
+        phone.nextElementSibling.innerHTML = "";
     }
 }
 
