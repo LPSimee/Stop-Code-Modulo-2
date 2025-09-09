@@ -21,6 +21,7 @@ form.addEventListener("submit", (event) => {
     let telTrim = regexTel.test(inputTel.value.trim());
 
     checkName(nameTrim, inputName);
+    checkEmail(emailTrim, inputEmail);
 
 });
 
@@ -31,6 +32,17 @@ function checkName(checkName, name){
         name.nextElementSibling.innerHTML = "Il tuo nome è invalido";
     } else {
         name.nextElementSibling.innerHTML = "";
+    }
+}
+
+
+function checkEmail(checkEmail, mail){
+    if(mail.value == ""){
+        mail.nextElementSibling.innerHTML = "Email obbligatoria";
+    } else if(checkEmail == false){
+        mail.nextElementSibling.innerHTML = "La tua mail è sbagliata";
+    } else {
+        mail.nextElementSibling.innerHTML = "";
     }
 }
 
